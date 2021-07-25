@@ -1,0 +1,2 @@
+#define IMAGEDLL_API __declspec(dllexport)
+#define IMAGEDLL_API __declspec(dllimport)
