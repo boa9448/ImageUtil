@@ -34,7 +34,6 @@
 
 namespace image
 {
-
 	IMAGE_UTIL_DLL cv::Mat hWndToMat(HWND hWnd, INT x = 0, INT y = 0, INT nWidth = 0, INT nHeigh = 0);
 	IMAGE_UTIL_DLL COLORREF mGetPixel(cv::Mat& Image, UINT x, UINT y, INT nChannels);
 	IMAGE_UTIL_DLL VOID mSetPixel(cv::Mat& Image, INT x, INT y, COLORREF Color, INT nChannels);
@@ -44,5 +43,8 @@ namespace image
 	IMAGE_UTIL_DLL INT ImageSearchEx_Parallel(cv::Mat& rSrc, cv::Mat& rTemp, std::vector<cv::Rect>& rResultList, COLORREF ExceptColor);
 	IMAGE_UTIL_DLL INT ImageSearchEx_Parallel(cv::Mat& rSrc, cv::Mat& rTemp, cv::Rect& rResult, FLOAT fRate, COLORREF ExceptColor);
 	IMAGE_UTIL_DLL INT ImageSearchEx_Parallel(cv::Mat& rSrc, cv::Mat& rTemp, std::vector<cv::Rect>& rResultList, FLOAT fRate, COLORREF ExceptColor);
-
 }
+
+
+extern "C" IMAGE_UTIL_DLL INT ImageSearchEx(LPCWSTR src_path, LPCWSTR temp_path, RECT* find, COLORREF except_color);
+extern "C" IMAGE_UTIL_DLL INT ImageSearchEx_All(LPCWSTR src_path, LPCWSTR temp_path, RECT* find, UINT find_size, COLORREF except_color);
