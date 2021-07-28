@@ -119,19 +119,22 @@ namespace image
 		INT nSrcChannels = rSrc.channels();
 		INT nTempChannels = rTemp.channels();
 
-		for (INT x = 0; x < rTemp.cols; x++)
+		if (mGetPixel(rTemp, 0, 0, nTempChannels) == ExceptColor)
 		{
-			for (INT y = 0; y < rTemp.rows; y++)
+			for (INT x = 0; x < rTemp.cols; x++)
 			{
-				if (mGetPixel(rTemp, x, y, nTempChannels) != ExceptColor)
+				for (INT y = 0; y < rTemp.rows; y++)
 				{
-					nStartX = x;
-					nStartY = y;
-					break;
+					if (mGetPixel(rTemp, x, y, nTempChannels) != ExceptColor)
+					{
+						nStartX = x;
+						nStartY = y;
+						break;
+					}
 				}
+				if (nStartX != 0 || nStartY != 0)
+					break;
 			}
-			if (nStartX != 0 || nStartY != 0)
-				break;
 		}
 
 		for (INT x = 0; x < nWidth; x++)
@@ -184,18 +187,22 @@ namespace image
 		INT nTempChannels = rTemp.channels();
 
 		//예외색상이 있는 경우에 시작 위치를 미리 계산
-		for (INT x = 0; x < rTemp.cols; x++)
+		if (mGetPixel(rTemp, 0, 0, nTempChannels) == ExceptColor)
 		{
-			for (INT y = 0; y < rTemp.rows; y++)
+			for (INT x = 0; x < rTemp.cols; x++)
 			{
-				if (mGetPixel(rTemp, x, y, nTempChannels) != ExceptColor)
+				for (INT y = 0; y < rTemp.rows; y++)
 				{
-					nStartX = x;
-					nStartY = y;
-					break;
+					if (mGetPixel(rTemp, x, y, nTempChannels) != ExceptColor)
+					{
+						nStartX = x;
+						nStartY = y;
+						break;
+					}
 				}
+				if (nStartX != 0 || nStartY != 0)
+					break;
 			}
-			if (nStartX != 0 || nStartY != 0) break;
 		}
 
 
@@ -249,19 +256,23 @@ namespace image
 		BOOL bFind = FALSE;
 		CRITICAL_SECTION cs = { 0, };
 
-		for (INT x = 0; x < rTemp.cols; x++)
+		//예외색상이 있는 경우에 시작 위치를 미리 계산
+		if (mGetPixel(rTemp, 0, 0, nTempChannels) == ExceptColor)
 		{
-			for (INT y = 0; y < rTemp.rows; y++)
+			for (INT x = 0; x < rTemp.cols; x++)
 			{
-				if (mGetPixel(rTemp, x, y, nTempChannels) != ExceptColor)
+				for (INT y = 0; y < rTemp.rows; y++)
 				{
-					nStartX = x;
-					nStartY = y;
-					break;
+					if (mGetPixel(rTemp, x, y, nTempChannels) != ExceptColor)
+					{
+						nStartX = x;
+						nStartY = y;
+						break;
+					}
 				}
+				if (nStartX != 0 || nStartY != 0)
+					break;
 			}
-			if (nStartX != 0 || nStartY != 0)
-				break;
 		}
 
 		InitializeCriticalSection(&cs);
@@ -319,18 +330,23 @@ namespace image
 		INT nSrcChannels = rSrc.channels();
 		INT nTempChannels = rTemp.channels();
 
-		for (INT x = 0; x < rTemp.cols; x++)
+		//예외색상이 있는 경우에 시작 위치를 미리 계산
+		if (mGetPixel(rTemp, 0, 0, nTempChannels) == ExceptColor)
 		{
-			for (INT y = 0; y < rTemp.rows; y++)
+			for (INT x = 0; x < rTemp.cols; x++)
 			{
-				if (mGetPixel(rTemp, x, y, nTempChannels) != ExceptColor)
+				for (INT y = 0; y < rTemp.rows; y++)
 				{
-					nStartX = x;
-					nStartY = y;
-					break;
+					if (mGetPixel(rTemp, x, y, nTempChannels) != ExceptColor)
+					{
+						nStartX = x;
+						nStartY = y;
+						break;
+					}
 				}
+				if (nStartX != 0 || nStartY != 0)
+					break;
 			}
-			if (nStartX != 0 || nStartY != 0) break;
 		}
 
 		try
@@ -405,18 +421,23 @@ namespace image
 		INT nTempChannels = rTemp.channels();
 		BOOL bFind = FALSE;
 
-		for (INT x = 0; x < rTemp.cols; x++)
+		//예외색상이 있는 경우에 시작 위치를 미리 계산
+		if (mGetPixel(rTemp, 0, 0, nTempChannels) == ExceptColor)
 		{
-			for (INT y = 0; y < rTemp.rows; y++)
+			for (INT x = 0; x < rTemp.cols; x++)
 			{
-				if (mGetPixel(rTemp, x, y, nTempChannels) != ExceptColor)
+				for (INT y = 0; y < rTemp.rows; y++)
 				{
-					nStartX = x;
-					nStartY = y;
-					break;
+					if (mGetPixel(rTemp, x, y, nTempChannels) != ExceptColor)
+					{
+						nStartX = x;
+						nStartY = y;
+						break;
+					}
 				}
+				if (nStartX != 0 || nStartY != 0)
+					break;
 			}
-			if (nStartX != 0 || nStartY != 0) break;
 		}
 
 		try
@@ -496,18 +517,23 @@ namespace image
 		INT nSrcChannels = rSrc.channels();
 		INT nTempChannels = rTemp.channels();
 
-		for (INT x = 0; x < rTemp.cols; x++)
+		//예외색상이 있는 경우에 시작 위치를 미리 계산
+		if (mGetPixel(rTemp, 0, 0, nTempChannels) == ExceptColor)
 		{
-			for (INT y = 0; y < rTemp.rows; y++)
+			for (INT x = 0; x < rTemp.cols; x++)
 			{
-				if (mGetPixel(rTemp, x, y, nTempChannels) != ExceptColor)
+				for (INT y = 0; y < rTemp.rows; y++)
 				{
-					nStartX = x;
-					nStartY = y;
-					break;
+					if (mGetPixel(rTemp, x, y, nTempChannels) != ExceptColor)
+					{
+						nStartX = x;
+						nStartY = y;
+						break;
+					}
 				}
+				if (nStartX != 0 || nStartY != 0)
+					break;
 			}
-			if (nStartX != 0 || nStartY != 0) break;
 		}
 
 		try
