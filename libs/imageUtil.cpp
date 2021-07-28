@@ -151,7 +151,7 @@ namespace image
 						}
 					}
 				}
-				rRect = { x, y, x + rTemp.cols, y + rTemp.rows };
+				rRect = { x, y, rTemp.cols, rTemp.rows };
 				return 1;
 			FIND_NEXT:;
 			}
@@ -218,7 +218,7 @@ namespace image
 						}
 					}
 				}
-				rResultList.push_back({ x, y, x + rTemp.cols, y + rTemp.rows });
+				rResultList.push_back({ x, y, rTemp.cols, rTemp.rows });
 				nFindCount++;
 			FIND_NEXT:;
 			}
@@ -283,7 +283,7 @@ namespace image
 						}
 					}
 					EnterCriticalSection(&cs);
-					rFindRect = { x, y, x + rTemp.cols, y + rTemp.rows };
+					rFindRect = { x, y, rTemp.cols, rTemp.rows };
 					bFind = TRUE;
 					LeaveCriticalSection(&cs);
 					break;
@@ -358,7 +358,7 @@ namespace image
 							}
 						}
 						EnterCriticalSection(&cs);
-						rResultList.push_back({ x, y, x + rTemp.cols, y + rTemp.rows });
+						rResultList.push_back({ x, y, rTemp.cols, rTemp.rows });
 						nFindCount++;
 						LeaveCriticalSection(&cs);
 					FIND_NEXT:;
@@ -450,7 +450,7 @@ namespace image
 							}
 						}
 						EnterCriticalSection(&cs);
-						rResult = { x, y, x + rTemp.cols, y + rTemp.rows };
+						rResult = { x, y, rTemp.cols, rTemp.rows };
 						bFind = TRUE;
 						LeaveCriticalSection(&cs);
 					FIND_NEXT:;
@@ -544,7 +544,7 @@ namespace image
 							}
 						}
 						EnterCriticalSection(&cs);
-						rResultList.push_back({ x, y, x + rTemp.cols, y + rTemp.rows });
+						rResultList.push_back({ x, y, rTemp.cols, rTemp.rows });
 						nFindCount++;
 						LeaveCriticalSection(&cs);
 					FIND_NEXT:;

@@ -4,8 +4,8 @@ int main()
 {
 	cv::Mat src;
 	cv::Mat temp;
-	src = cv::imread("C:\\mask2.png");
-	temp = cv::imread("C:\\temp2.png");
+	src = cv::imread("..\\imgs\\src.png");
+	temp = cv::imread("..\\imgs\\temp.png");
 
 	for (int idx = 0; idx < 10; idx++)
 	{
@@ -13,7 +13,7 @@ int main()
 
 		cv::Rect find;
 		int result = image::ImageSearchEx(src, temp, find, EXCEPT_RED);
-		//cv::rectangle(src, find, cv::Scalar(0, 255, 0), 2);
+		cv::rectangle(src, find, cv::Scalar(0, 255, 0), 2);
 
 		std::cout << (cv::getTickCount() - t1) / cv::getTickFrequency() << std::endl;
 	}
