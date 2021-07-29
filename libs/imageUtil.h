@@ -45,6 +45,6 @@ namespace image
 	IMAGE_UTIL_DLL INT ImageSearchEx_Parallel(cv::Mat& rSrc, cv::Mat& rTemp, std::vector<cv::Rect>& rResultList, FLOAT fRate, COLORREF ExceptColor);
 }
 
-
+extern "C" IMAGE_UTIL_DLL VOID ClearImageMap();
 extern "C" IMAGE_UTIL_DLL INT ImageSearchEx(LPCWSTR src_path, LPCWSTR temp_path, RECT* find, COLORREF except_color);
 extern "C" IMAGE_UTIL_DLL INT ImageSearchEx_All(LPCWSTR src_path, LPCWSTR temp_path, RECT* find, UINT find_size, COLORREF except_color);

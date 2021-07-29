@@ -665,6 +665,13 @@ std::wstring AnsiToUnicode(LPCSTR lpszString, UINT nCodePage)
 
 
 std::map<std::wstring, cv::Mat> g_img_map;
+
+VOID ClearImageMap()
+{
+	g_img_map.clear();
+	return;
+}
+
 INT ImageSearchEx(LPCWSTR src_path, LPCWSTR temp_path, RECT* find, COLORREF except_color)
 {
 	auto src_it = g_img_map.find(src_path);
@@ -680,5 +687,27 @@ INT ImageSearchEx(LPCWSTR src_path, LPCWSTR temp_path, RECT* find, COLORREF exce
 	find->top = find_.y;
 	find->right = find_.x + find_.width;
 	find->bottom = find_.y + find_.height;
+	return nRet;
+}
+
+INT ImageSearchEx_All(LPCWSTR src_path, LPCWSTR temp_path, RECT* find, UINT find_size, COLORREF except_color)
+{
+	auto src_it = g_img_map.find(src_path);
+	auto temp_it = g_img_map.find(temp_path);
+
+	cv::Mat src = src_it != g_img_map.end() ? src_it->second : cv::imread(UnicodeToAnsi(src_path, CP_ACP));
+	cv::Mat temp = temp_it != g_img_map.end() ? temp_it->second : cv::imread(UnicodeToAnsi(temp_path, CP_ACP));
+
+	std::vector<cv::Rect> find_;
+	INT nRet = image::ImageSearchEx(src, temp, find_, except_color);
+
+	for (INT idx = 0; idx < find_size; idx++)
+	{
+		find[idx].left = find_[idx].x;
+		find[idx].top = find_[idx].y;
+		find[idx].right = find_[idx].x + find_[idx].width;
+		find[idx].bottom = find_[idx].y + find_[idx].height;
+	}
+
 	return nRet;
 }
