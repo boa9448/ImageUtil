@@ -701,7 +701,8 @@ INT ImageSearchEx_All(LPCWSTR src_path, LPCWSTR temp_path, RECT* find, UINT find
 	std::vector<cv::Rect> find_;
 	INT nRet = image::ImageSearchEx(src, temp, find_, except_color);
 
-	for (INT idx = 0; idx < find_size; idx++)
+	INT loopCount = nRet > find_size ? find_size : nRet;
+	for (INT idx = 0; idx < loopCount; idx++)
 	{
 		find[idx].left = find_[idx].x;
 		find[idx].top = find_[idx].y;
