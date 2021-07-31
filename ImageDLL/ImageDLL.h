@@ -20,3 +20,18 @@ public:
 extern IMAGEDLL_API int nImageDLL;
 
 IMAGEDLL_API int fnImageDLL(void);
+
+extern "C" IMAGEDLL_API VOID ClearImageMap();
+extern "C" IMAGEDLL_API INT ImageSearchEx(LPCWSTR src_path, LPCWSTR temp_path, RECT * find, COLORREF except_color);
+extern "C" IMAGEDLL_API INT ImageSearchEx_All(LPCWSTR src_path, LPCWSTR temp_path, RECT * find, UINT find_size, COLORREF except_color);
+
+typedef struct image_
+{
+	BYTE* data;
+	INT width;
+	INT height;
+	INT channels;
+}IMAGE;
+
+extern "C" IMAGEDLL_API INT ImageSearchEx_Raw(IMAGE * src, IMAGE * temp, RECT * find, COLORREF except_color);
+extern "C" IMAGEDLL_API INT ImageSearchEx_Raw_All(IMAGE * src, IMAGE * temp, RECT * find, UINT find_size, COLORREF except_color);
