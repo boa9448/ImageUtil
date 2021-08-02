@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageDLL", "ImageDLL\ImageDLL.vcxproj", "{20CC8B88-16E7-4EF1-A3FC-B986184347F0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageDLLTest", "ImageDLLTest\ImageDLLTest.vcxproj", "{ECF5277D-3148-4034-AC52-6AD02C4E55C9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{20CC8B88-16E7-4EF1-A3FC-B986184347F0} = {20CC8B88-16E7-4EF1-A3FC-B986184347F0}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageTest", "ImageTest\ImageTest.vcxproj", "{5652603E-4C98-4BC5-9DEF-8A7EF572D1BC}"
 EndProject

@@ -16,18 +16,38 @@ namespace Image
         public Int32 bottom;
     }
 
+    [StructLayout(LayoutKind.Sequential)]
+    public struct IMAGE
+    {
+        UIntPtr data;
+        Int32 width;
+        Int32 height;
+        Int32 channels;
+    }
+
     class Search
     {
 
         [DllImport("ImageDLL.dll", SetLastError = true, EntryPoint = "ImageSearchEx")]
         public static extern int ImageSearchEx([MarshalAs(UnmanagedType.LPWStr)]string src_path, [MarshalAs(UnmanagedType.LPWStr)]string temp_path
-            , ref RECT find , uint except_color);
+            , ref RECT find , UInt32 except_color);
 
         [DllImport("ImageDLL.dll", SetLastError = true, EntryPoint = "ImageSearchEx_All")]
         public static extern int ImageSearchEx_All([MarshalAs(UnmanagedType.LPWStr)]string src_path, [MarshalAs(UnmanagedType.LPWStr)]string temp_path
-            , [In, Out]RECT[] find_list, uint find_size , uint except_color);
+            , [In, Out]RECT[] find_list, uint find_size , UInt32 except_color);
 
-        [DllImport("ClearImageMap", SetLastError = true, EntryPoint = "ClearImageMap")]
+        [DllImport("ImageDLL.dll", SetLastError = true, EntryPoint = "ClearImageMap")]
         public static extern void ClearImageMap();
+
+        [DllImport("ImageDLL.dll", SetLastError = true, EntryPoint = "ImageSearchEx_Raw")]
+        public static extern int ImageSearchEx_Raw(ref IMAGE src, ref IMAGE temp, ref RECT find, UInt32 except_color);
+
+        [DllImport("ImageDLL.dll", SetLastError = true, EntryPoint = "ImageSearchEx_All")]
+        public static extern int ImageSearchEx_Raw_All(ref IMAGE src, ref IMAGE temp, [In, Out] RECT[] find_list, uint find_size, UInt32 except_color);
+
+        public static UInt32 RGB(byte r, byte g, byte b)
+        {
+            return (UInt32)(r | (g << 8) | (b << 16));
+        }
     }
 }

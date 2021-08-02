@@ -4,7 +4,7 @@
 #include "pch.h"
 #include "framework.h"
 #include "ImageDLL.h"
-#include "..\libs\imageUtil.h"
+#include "../libs/imageUtil.h"
 
 // 내보낸 변수의 예제입니다.
 IMAGEDLL_API int nImageDLL=0;

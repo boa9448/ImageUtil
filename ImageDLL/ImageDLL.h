@@ -10,6 +10,8 @@
 #define IMAGEDLL_API __declspec(dllimport)
 #endif
 
+#include <Windows.h>
+
 // 이 클래스는 dll에서 내보낸 것입니다.
 class IMAGEDLL_API CImageDLL {
 public:
