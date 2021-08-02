@@ -31,7 +31,7 @@ namespace ImageDLLTest_CSharp
             var watch = new Stopwatch();
             watch.Start();
             int nRet = Search.ImageSearchEx_All("..\\..\\..\\imgs\\src2.png", "..\\..\\..\\imgs\\temp2.png"
-                , find_list, (uint)find_list.Length, 255);
+                , find_list, (uint)find_list.Length, 0);
             watch.Stop();
 
             Console.WriteLine("search time : {0} ms", watch.ElapsedMilliseconds);
@@ -48,7 +48,7 @@ namespace ImageDLLTest_CSharp
         {
             var value = System.Environment.GetEnvironmentVariable("PATH") + ";";
             value += System.IO.Path.GetFullPath("..\\..\\..\\x64\\Debug") + ";";
-            value += System.IO.Path.GetFullPath("..\\..\\..\\x64\\vc16\\bin") + ";";
+            value += "E:\\Library\\opencv\\install\\x64\\vc16\\bin;";
             value += "F:\\WDW\\Library\\opencv\\build\\x64\\vc15\\bin;";
             System.Environment.SetEnvironmentVariable("PATH", value);
 
