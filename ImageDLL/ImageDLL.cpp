@@ -100,7 +100,7 @@ VOID ClearImageMap()
 	return;
 }
 
-INT ImageSearchEx(LPCWSTR src_path, LPCWSTR temp_path, RECT* find, COLORREF except_color)
+INT ImageSearchEx(IN LPCWSTR src_path, IN LPCWSTR temp_path, IN OUT RECT* find, IN COLORREF except_color)
 {
 	auto src_it = g_img_map.find(src_path);
 	auto temp_it = g_img_map.find(temp_path);
@@ -119,7 +119,7 @@ INT ImageSearchEx(LPCWSTR src_path, LPCWSTR temp_path, RECT* find, COLORREF exce
 	return nRet;
 }
 
-INT ImageSearchEx_All(LPCWSTR src_path, LPCWSTR temp_path, RECT* find, UINT find_size, COLORREF except_color)
+INT ImageSearchEx_All(IN LPCWSTR src_path, IN LPCWSTR temp_path, IN OUT RECT* find, IN UINT find_size, IN COLORREF except_color)
 {
 	auto src_it = g_img_map.find(src_path);
 	auto temp_it = g_img_map.find(temp_path);
@@ -143,7 +143,7 @@ INT ImageSearchEx_All(LPCWSTR src_path, LPCWSTR temp_path, RECT* find, UINT find
 	return nRet;
 }
 
-INT ImageSearchEx_Raw(IMAGE* src, IMAGE* temp, RECT* find, COLORREF except_color)
+INT ImageSearchEx_Raw(IN IMAGE* src, IN IMAGE* temp, IN OUT RECT* find, IN COLORREF except_color)
 {
 	cv::Mat src_(src->height, src->width, src->channels == 3 ? CV_8UC3 : CV_8UC4, src->data);
 	cv::Mat temp_(temp->height, temp->width, src->channels == 3 ? CV_8UC3 : CV_8UC4, temp->data);
@@ -159,7 +159,7 @@ INT ImageSearchEx_Raw(IMAGE* src, IMAGE* temp, RECT* find, COLORREF except_color
 	return nRet;
 }
 
-INT ImageSearchEx_Raw_All(IMAGE* src, IMAGE* temp, RECT* find, UINT find_size, COLORREF except_color)
+INT ImageSearchEx_Raw_All(IN IMAGE* src, IN IMAGE* temp, IN OUT RECT* find, IN UINT find_size, IN COLORREF except_color)
 {
 
 	cv::Mat src_(src->height, src->width, src->channels == 3 ? CV_8UC3 : CV_8UC4, src->data);
