@@ -27,13 +27,15 @@ extern "C" IMAGEDLL_API VOID ClearImageMap();
 extern "C" IMAGEDLL_API INT ImageSearchEx(IN LPCWSTR src_path, IN LPCWSTR temp_path, IN OUT RECT * find, IN COLORREF except_color);
 extern "C" IMAGEDLL_API INT ImageSearchEx_All(IN LPCWSTR src_path, IN LPCWSTR temp_path, IN OUT RECT * find, IN UINT find_size, IN COLORREF except_color);
 
+#pragma pack(push, 16)
 typedef struct image_
 {
 	BYTE* data;
-	INT width;
 	INT height;
+	INT width;
 	INT channels;
 }IMAGE;
+#pragma pack(pop)
 
 extern "C" IMAGEDLL_API INT ImageSearchEx_Raw(IN IMAGE * src, IN IMAGE * temp, IN OUT RECT * find, IN COLORREF except_color);
 extern "C" IMAGEDLL_API INT ImageSearchEx_Raw_All(IN IMAGE * src, IN IMAGE * temp, IN OUT RECT * find, IN UINT find_size, IN COLORREF except_color);
